@@ -1,4 +1,8 @@
-const backendUrl = process.env.BACKEND_URL || process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:8000';
+let rawBackendUrl = process.env.BACKEND_URL || process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:8000';
+if (!rawBackendUrl.startsWith('http://') && !rawBackendUrl.startsWith('https://')) {
+  rawBackendUrl = `https://${rawBackendUrl}`;
+}
+const backendUrl = rawBackendUrl.replace(/\/+$/, '');
 
 const nextConfig = {
   reactStrictMode: true,
