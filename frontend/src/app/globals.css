@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-gov-slate-50 text-gov-slate-900 font-sans antialiased text-sm;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply text-gov-navy font-semibold tracking-tight;
+  }
+
+  input, select, textarea {
+    @apply border border-gov-slate-300 rounded px-3 py-2 text-sm bg-white focus:outline-none focus:ring-1 focus:ring-gov-navy focus:border-gov-navy;
+  }
+
+  table {
+    @apply border-collapse w-full;
+  }
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Institutional print and accessibility styling */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+}

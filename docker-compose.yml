@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: sih_scholarship_backend
+    restart: always
+    environment:
+      - DATABASE_URL=sqlite:///./scholarship_portal.db
+      - SECRET_KEY=mota-sih-prototype-super-secret-key-2026
+      - DIGILOCKER_MODE=demo
+      - DATASET_PATH=/app/dataset
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend:/app
+      - ../SIH_ST_NFST_NOS_1000:/app/dataset
+      - ./uploads:/app/uploads
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: sih_scholarship_frontend
+    restart: always
+    ports:
+      - "3000:3000"
+    environment:
+      - NEXT_PUBLIC_API_URL=http://backend:8000
+    depends_on:
+      - backend
