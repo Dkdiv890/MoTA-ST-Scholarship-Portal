@@ -1,3 +1,13 @@
+---
+title: MoTA ST Scholarship Portal
+emoji: 🏛️
+colorFrom: blue
+colorTo: indigo
+sdk: docker
+app_port: 7860
+pinned: false
+---
+
 # Ministry of Tribal Affairs - ST Scholarship & Fellowship Platform
 
 A comprehensive portal prototype for Scheduled Tribes (ST) students applying for higher education scholarships:
