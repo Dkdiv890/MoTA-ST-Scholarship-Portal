@@ -2,8 +2,8 @@
 
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { api } from '@/lib/api';
-import StatusBadge from '@/components/ui/StatusBadge';
+import { api } from '../lib/api';
+import StatusBadge from '../components/ui/StatusBadge';
 
 export default function HomePage() {
   const [schemes, setSchemes] = useState<any[]>([]);

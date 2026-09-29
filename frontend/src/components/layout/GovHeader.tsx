@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useRouter, usePathname } from 'next/navigation';
-import { getStoredUser, clearAuthToken } from '@/lib/api';
+import { getStoredUser, clearAuthToken } from '../../lib/api';
 
 export default function GovHeader() {
   const router = useRouter();

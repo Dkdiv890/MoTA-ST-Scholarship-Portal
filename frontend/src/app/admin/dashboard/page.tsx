@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { api, getStoredUser } from '@/lib/api';
+import { api, getStoredUser } from '../../../lib/api';
 
 export default function AdminDashboardPage() {
   const router = useRouter();
