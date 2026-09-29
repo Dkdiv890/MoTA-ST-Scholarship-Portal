@@ -1,9 +1,9 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 
-export default function DigiLockerDemoPage() {
+function DigiLockerDemoContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const appId = searchParams.get('application_id') || 'APP20260001';
@@ -406,5 +406,19 @@ export default function DigiLockerDemoPage() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function DigiLockerDemoPage() {
+  return (
+    <Suspense
+      fallback={
+        <div className="max-w-xl mx-auto my-8 p-8 text-center text-xs text-gov-slate-600">
+          Loading DigiLocker Gateway...
+        </div>
+      }
+    >
+      <DigiLockerDemoContent />
+    </Suspense>
   );
 }

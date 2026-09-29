@@ -1,10 +1,10 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { api } from '@/lib/api';
 
-export default function DigiLockerCallbackPage() {
+function DigiLockerCallbackContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const appId = searchParams.get('application_id') || 'APP20260001';
@@ -110,5 +110,19 @@ export default function DigiLockerCallbackPage() {
         Redirecting to Application Tracking Workbench...
       </div>
     </div>
+  );
+}
+
+export default function DigiLockerCallbackPage() {
+  return (
+    <Suspense
+      fallback={
+        <div className="max-w-md mx-auto my-16 bg-white border border-gov-slate-300 rounded shadow-sm p-8 text-center text-xs text-gov-slate-600">
+          Processing DigiLocker Handshake...
+        </div>
+      }
+    >
+      <DigiLockerCallbackContent />
+    </Suspense>
   );
 }
